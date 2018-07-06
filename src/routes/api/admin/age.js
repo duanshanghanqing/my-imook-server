@@ -1,0 +1,14 @@
+const router = require('koa-router')()
+
+router.get('/', function (ctx, next) {
+  ctx.body = 'this is a users response!'
+})
+
+router.get('/bar', function (ctx, next) {
+  ctx.body = JSON.stringify({ code: "0", data: { name: "xxx" }, msg: "xxx" });
+})
+
+router.post('/bar', function (ctx, next) {
+  ctx.body = JSON.stringify({ code: "0", data: { name: "xxx" }, msg: "xxx" });
+})
+module.exports = router

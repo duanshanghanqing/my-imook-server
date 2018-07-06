@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <img src="<%= imgUrl %>"/>
+    <h1><%= title %></h1>
+    <p>EJS Welcome to <%= title %></p>
+    <form method="POST" action="/file" enctype="multipart/form-data">
+      <input type="file" value="" name="file"/>
+      <input type="text" name="test">
+      <input type="submit" value="提交">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+官网下载：mysql-5.6.37-winx64.zip
+百度网盘:https://pan.baidu.com/s/1i44tsgt
+解压
+bin目录执行
+    安装服务：
+        mysqld -install
+    启动服务，以后自动启动
+        net start mysql
+    停止服务
+        net stop mysql
+        问题：
+            提示:"'net'不是内部或外部命令。
+            解决：我的电脑->右键->属性->高级->环境变量->系统变量->Path，我的电脑->右键->属性->高级->环境变量->系统变量->Path，再点“编辑”就可以了。在“变量值”对话框里面加“C:\windows\system32“，这是cmd.exe存在的路径，然后点确定就可以了。
+    移除服务
+        mysqld -remove
+    登录本机     
+        mysql -hlocalhost -uroot -p密码
+    退出
+        quit    或   exit
+    查看数据库
+        SHOW DATABASES;    
+    sql注释
+        单行注释
+            -- SHOW DATABASES;
+        多行注释
+            /*
+                SHOW DATABASES;
+            */
+    显示警告
+        show warnings;
+    查看建立数据库
+        show create database db;
+    安装目录中数据库配置文件
+        my.ini  window系统使用的配置文件
+            [client]
+            port = 3306
+            default-character-set=utf8
+
+            [mysql]
+            default-character-set=utf8
+
+            [mysqld]
+            # 配置多台mysql集群服务使用
+            # server_id = ..... 
+            # 数据库端口
+            port = 3306
+            # 数据库安装目录
+            basedir="D:/software/mysql-5.6.37-winx64"
+            # 数据存储目录
+            datadir="D:/software/mysql-5.6.37-winx64/data/"
+            # 默认字符集
+            character-set-server=utf8
+            # 默认使用引擎
+            default-storage-engine=INNODB
+        my.cng  linux系统使用的配置文件
+
+字段数据类型
+    整形
+        tinyint smallint mediumint int bigint        
