@@ -6,7 +6,6 @@ const config = require('../config/index')
 module.exports = function (app) {
     app.use(async (ctx, next) => {
         let { request, method } = ctx;
-        console.log(request)
         let params = {};
         Object.assign(params,request.body || {},request.query || {});
         let reqParams = {}

@@ -9,14 +9,11 @@ const session = require('./session');
 const jsonp = require('./jsonp');
 //路由注册
 const routerRegister = require('./routerRegister');
-//日志记录
-const logger = require('./logger');
 
 //业务中间件
 const businessMiddlewares = require('./businessMiddlewares/index');
 module.exports = function (app) {
     session(app);
-    logger(app);
     jsonp(app);
     reqParams(app);
     businessMiddlewares(app);

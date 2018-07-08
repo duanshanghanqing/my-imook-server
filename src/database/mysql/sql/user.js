@@ -8,7 +8,7 @@ create table user(
     sex enum('男','女') default null,
     phone varchar(11) default null, 
     email varchar(20) default null,  
-    password varchar(20) default null,
+    password varchar(200) default null,
     create_time int(20) default null,
     modified_time int(20) default null,
     role varchar(20) default null,
