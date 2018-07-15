@@ -18,7 +18,7 @@ router.get('/test',async function (ctx, next) {
 })
 
 //登录
-router.post('/login',async function (ctx, next) {
+router.post('/login',async (ctx, next) => {
   let returnData = ctx.state.config.initData();
   let { reqParams } = ctx.state;
   try{
@@ -42,7 +42,7 @@ router.post('/login',async function (ctx, next) {
 });
 
 //注册
-router.post('/registerUserInfo', async function (ctx, next) {
+router.post('/registerUserInfo', async (ctx, next) => {
   let returnData = ctx.state.config.initData();
   let { reqParams } = ctx.state;
   //用户名唯一,检查用户名是否注册
@@ -63,6 +63,12 @@ router.post('/registerUserInfo', async function (ctx, next) {
     console.error("User.registerUserInfo error");
     returnData = ctx.state.config.nodeApiError();
   }
+  ctx.body = returnData;
+})
+
+// 获取用户信息
+router.get('/getUserInfo', async (ctx, next) => {
+  let returnData = ctx.state.config.initData();
   ctx.body = returnData;
 })
 
