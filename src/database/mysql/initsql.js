@@ -1,7 +1,7 @@
 const path = require('path');
 const mysql = require('mysql');
 const mysqlConfig = require('../../config/mysql');
-console.log(mysqlConfig);
+
 //记录使用的库
 const database = mysqlConfig.database;
 
@@ -39,6 +39,7 @@ const sql = require("./sql/index");
 
 //初始化
 ; (async function () {
+
     // 删除数据库
     await query(sql.dropDataBase(database));
     // 创建数据库
@@ -48,9 +49,12 @@ const sql = require("./sql/index");
     // 使用数据库
     await query(sql.useDataBase(database));
 
-    //初始化user表
-    // 创建表
+    // 初始化user表
     await query(sql.create_user);
+    // 初始化招聘表
+    await query(sql.create_recruit);
+
+
     /*
     // 插入一些数据
     for (var i = 0; i < 100; i++) {

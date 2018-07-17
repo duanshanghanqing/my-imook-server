@@ -1,4 +1,4 @@
-const user = require("./user");
+
 //删除数据库
 const dropDataBase = (dataBaseName) => {
     //删除数据库如果存在的情况下
@@ -26,11 +26,12 @@ const showTables = () => {
     return `show tables;`;
 }
 
-
+const user = require("./user");
+const recruit = require("./recruit");
 module.exports = Object.assign({
     dropDataBase,
     createDataBase,
     showDataBases,
     useDataBase,
     showTables
-}, user)
+}, user, recruit)
