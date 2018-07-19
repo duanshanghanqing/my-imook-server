@@ -1,5 +1,6 @@
 //创建recruit表
 /*
+publisher: 发布者
 title：职位
 company：公司名称
 logo： logo
@@ -15,6 +16,7 @@ duty：工作职责
 exports.create_recruit =  `
     create table recruit(
         id int unsigned not null auto_increment,
+        publisher varchar(20) not null,
         title varchar(20) not null,
         company varchar(20) not null,
         logo varchar(200) default null,
