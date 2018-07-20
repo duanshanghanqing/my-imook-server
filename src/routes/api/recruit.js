@@ -6,7 +6,10 @@ router.post('/add', async (ctx, next) => {
     let returnData = ctx.state.config.initData();
     let { reqParams } = ctx.state;
     try {
-        await Recruit.add(reqParams);
+        let { serverStatus } = await Recruit.add(reqParams);
+        if(serverStatus === 2){
+          returnData.msg = '添加成功'
+        }
      } catch (e) {
        console.error("Recruit.add error");
        return ctx.body = ctx.state.config.nodeApiError();
