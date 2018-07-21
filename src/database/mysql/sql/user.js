@@ -2,7 +2,7 @@
 const create_user = `
 create table user(
     id int unsigned not null auto_increment,
-    name varchar(20) not null,
+    name varchar(20) default null,
     age tinyint(2) zerofill default null,
     nick char(20) default null,
     sex enum('男','女') default null,

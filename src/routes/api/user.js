@@ -24,11 +24,11 @@ router.post('/login',async (ctx, next) => {
   try{
     //查询数据库
     let LoginRes = await User.Login(reqParams);
-    if(LoginRes.length > 0){
+    if(Array.isArray(LoginRes) && LoginRes.length > 0){
       returnData.data = LoginRes[0];
       delete returnData.data.password;
       //生成Token保存到session中
-      ctx.session.Token = returnData.data.name.charCodeAt(0).toString(16) + new Date()*1;
+      ctx.session.Token = (returnData.data.name || returnData.data.email || returnData.data.phone).charCodeAt(0).toString(16) + new Date()*1;
       returnData.data.Token = ctx.session.Token;
     }else{
       returnData = ctx.state.config.nodeApiError({msg:"登录失败!"});

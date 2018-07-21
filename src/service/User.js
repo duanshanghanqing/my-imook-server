@@ -1,15 +1,25 @@
 const { query } = require('../database/mysql/index');
-const { encryption, decryption } = require('../utils/index');
+const { encryption } = require('../utils/index');
 class User {
     constructor() {
 
     }
 
     //获取用户信息
-    static async Login({ name, password }) {
-        let sql = 'SELECT * FROM user  WHERE name = ? AND password = ?';
-        let values = [name, encryption(password)];
-        return await query(sql, values);
+    static async Login({ name, email, phone, password }) {
+        let sql = '';
+        if (name) {
+            sql = 'SELECT * FROM user  WHERE name = ? AND password = ?';
+            return await query(sql, [name, encryption(password)]);
+        }
+        if(email){
+            sql = 'SELECT * FROM user  WHERE email = ? AND password = ?';
+            return await query(sql, [email, encryption(password)]);
+        }
+        if(phone){
+            sql = 'SELECT * FROM user  WHERE phone = ? AND password = ?';
+            return await query(sql, [phone, encryption(password)]);
+        }
     }
 
     //检查用户名是否存在
